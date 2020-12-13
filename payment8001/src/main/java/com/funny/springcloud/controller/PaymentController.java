@@ -59,4 +59,9 @@ public class PaymentController {
         }
         return new Result(200,"获取服务列表成功！",services);
     }
+
+    @GetMapping("/payment/lb")
+    public String testLB(){
+       return serverPort;
+    }
 }
