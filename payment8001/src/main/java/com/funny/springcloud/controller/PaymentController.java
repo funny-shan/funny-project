@@ -1,8 +1,10 @@
 package com.funny.springcloud.controller;
 
+import ch.qos.logback.core.util.TimeUtil;
 import com.funny.springcloud.entities.Payment;
 import com.funny.springcloud.entities.Result;
 import com.funny.springcloud.service.PaymentService;
+import io.micrometer.core.instrument.util.TimeUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,6 +13,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -62,6 +65,16 @@ public class PaymentController {
 
     @GetMapping("/payment/lb")
     public String testLB(){
+       return serverPort;
+    }
+
+    @GetMapping("/payment/feign/timeout")
+    public String testFeignTimeOut() {
+       try {
+           Thread.sleep(3000);
+       } catch (InterruptedException e) {
+           e.printStackTrace();
+       }
        return serverPort;
     }
 }
