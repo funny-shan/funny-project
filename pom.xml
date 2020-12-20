@@ -23,6 +23,7 @@
         <module>hystrixorder80</module>
         <module>hystrixdashboard9001</module>
         <module>gateway9527</module>
+        <module>configcenter3344</module>
     </modules>
     <packaging>pom</packaging>
 
