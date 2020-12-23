@@ -25,6 +25,7 @@
         <module>gateway9527</module>
         <module>configcenter3344</module>
         <module>configclient3355</module>
+        <module>configclient3366</module>
     </modules>
     <packaging>pom</packaging>
 
